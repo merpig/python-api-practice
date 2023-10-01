@@ -1,0 +1,4 @@
+__pycache__
+build
+testfolder.egg-info
+./testfolder/config.json
