@@ -35,7 +35,7 @@ class WriteToFile:
         else:
             contents[term] = self.unique([*termContents,*data])
         file = open(filename, 'w')
-        file.write(json.dumps(contents))
+        file.write(json.dumps(contents, indent=4))
         file.close()
 
 

@@ -1,10 +1,14 @@
 import sys
 from testfolder.queryApi import queryApi
 from testfolder.gifTerms import gifTerms
+from testfolder.generateHTML import generateHTML
+from testfolder.openInBrowser import openInBrowser
 
 cliCmds = {
     "-q": queryApi,
-    "-c": gifTerms
+    "-c": gifTerms,
+    "-g": generateHTML,
+    "-o": openInBrowser
 }
 
 def init():

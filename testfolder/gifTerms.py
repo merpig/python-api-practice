@@ -49,7 +49,7 @@ def gifTerms(argv):
                         if key != term:
                             newContents[key] = contents[key]
                     file = open(filename, 'w')
-                    file.write(json.dumps(newContents))
+                    file.write(json.dumps(newContents, indent=4))
                     print(f"Successfully removed {term} from config.json.")
                     file.close()
 
