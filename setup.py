@@ -7,7 +7,7 @@ def readme():
 setup(name='testfolder',
       version='0.1',
       description='The best testfolder in the world',
-    #   url='http://github.com/storborg/funniest',
+      url='http://github.com/merpig/python-api-practice',
       author='merpig',
       author_email='peteram1@sewanee.edu',
       license='MIT',
