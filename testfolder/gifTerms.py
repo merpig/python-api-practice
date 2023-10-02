@@ -25,11 +25,37 @@ def gifTerms(argv):
 
     # removes term key from config.json
     elif len(argv) > 3 and argv[2] == '-D':
-        print("Do stuff")
+        term = argv[3]
+        try:
+            file = open(filename, 'r')
+        except: 
+            print("Query term doesn't exist to remove.")
+        else:
+            try:
+                contents = json.load(file)
+            except:
+                print("Query term doesn't exist to remove.")
+                file.close()
+            else:
+                try:
+                    contents[term]
+                except:
+                    print("Query term doesn't exist to remove.")
+                # if the term exists in config.json then remove it
+                else:
+                    newContents = {}
+                    keys = list(contents)
+                    for key in keys:
+                        if key != term:
+                            newContents[key] = contents[key]
+                    file = open(filename, 'w')
+                    file.write(json.dumps(newContents))
+                    print(f"Successfully removed {term} from config.json.")
+                    file.close()
 
     elif len(argv) == 3 and argv[2] == '-D':
         print("Str value expected. Ex: py . -c -D {term}")
-        
+
     elif len(argv) > 2 and argv[2] != '-D':
         print(f"Unknown flag: {argv[2]}")
 
