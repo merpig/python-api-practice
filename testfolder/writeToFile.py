@@ -12,14 +12,14 @@ class WriteToFile:
     def readFile(self):
         try:
             file = open(filename, 'r')
-        except: 
+        except FileNotFoundError:
             file = open(filename, 'x')
             file.close()
             return {}
         else:
             try:
                 contents = json.load(file)
-            except:
+            except json.decoder.JSONDecodeError:
                 file.close()
                 return {}
             else:
@@ -30,7 +30,7 @@ class WriteToFile:
         contents = self.readFile()
         try:
             termContents = contents[term]
-        except: 
+        except KeyError: 
             contents[term] = data
         else:
             contents[term] = self.unique([*termContents,*data])

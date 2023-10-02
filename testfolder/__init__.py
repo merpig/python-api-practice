@@ -18,7 +18,7 @@ def init():
     else:
         try:
             cliCmds[argv[1]](argv)
-        except:
+        except KeyError:
             print(f"Unknown flag: {argv[1]}")
 
 if __name__ ==  '__main__':

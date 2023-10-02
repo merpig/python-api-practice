@@ -6,13 +6,13 @@ def gifTerms(argv):
     # prints list of term keys
     if len(argv) == 2:
         try:
-                file = open(filename, 'r')
-        except: 
+            file = open(filename, 'r')
+        except FileNotFoundError: 
             print("No query terms found.")
         else:
             try:
                 contents = json.load(file)
-            except:
+            except json.decoder.JSONDecodeError:
                 file.close()
                 print("No query terms found.")
             else:
@@ -28,18 +28,18 @@ def gifTerms(argv):
         term = argv[3]
         try:
             file = open(filename, 'r')
-        except: 
+        except FileNotFoundError: 
             print("Query term doesn't exist to remove.")
         else:
             try:
                 contents = json.load(file)
-            except:
+            except json.decoder.JSONDecodeError:
                 print("Query term doesn't exist to remove.")
                 file.close()
             else:
                 try:
                     contents[term]
-                except:
+                except KeyError:
                     print("Query term doesn't exist to remove.")
                 # if the term exists in config.json then remove it
                 else:

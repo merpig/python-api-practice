@@ -45,12 +45,12 @@ def gifCard(link):
 def generateHTML(argv):
     try:   
         file = open(filename, 'r')
-    except: 
+    except FileNotFoundError: 
         print("No gifs to display. Run `py . -q {query}` to add gifs")
     else:
         try:
             contents = json.load(file)
-        except:
+        except json.decoder.JSONDecodeError:
             file.close()
             print("No gifs to display. Run `py . -q {query}` to add gifs")
         else:

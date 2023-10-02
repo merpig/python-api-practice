@@ -12,7 +12,7 @@ From the python-api-practice folder:
 
 - install dependencies ```pip install .```
 - run ```py .```
-    - Equivalent of ```py . -q code``` which fetches 5 random gifs related to code and writes them to config.json
+    - Equivalent of ```py . -q code``` which fetches 5 random gifs related to code and writes them to config.json.
 - run ```py . -q {query}```
     - Fetches 5 random gifs related to ```query```. Max limit of 10.
 - run ```py . -c``` 
@@ -20,4 +20,6 @@ From the python-api-practice folder:
 - run ```py . -c -D {term}```
     - Deletes term and term values from config.json.
 - run ```py . -g```
-    - Generates index.html page displaying saved gifs in config.json
+    - Generates index.html page displaying saved gifs in config.json.
+- run ```py . -o```
+    - Open index.html if it exists in the default browser.
